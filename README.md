@@ -1,4 +1,10 @@
-# Movie-Theatre-Ticket-Booking-System  
+# Movie-Theatre-Ticket-Booking-System
+
+v0.2  
+$ seat selection feature is added
+$ full program is reworked by breaking the code into more files, increasing total readability
+
+v0.1  
 A university project with specific requirements  
 $ This is an admin software for a movie theatre named ABC Cineplex  
 $ The main functions are-  
