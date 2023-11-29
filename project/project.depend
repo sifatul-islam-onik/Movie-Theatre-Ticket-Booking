@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1701250678 source:c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\customer.cpp
+	<iostream>
+	"classes.h"
+
+1701251215 source:c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\displaycustomer.cpp
+	<iostream>
+	"classes.h"
+
+1701251205 c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\classes.h
+	<map>
+	<iostream>
+
+1701250345 source:c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\hall.cpp
+	<iostream>
+	"classes.h"
+
+1701249989 source:c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\main.cpp
+	<iostream>
+	<map>
+	"classes.h"
+
+1701250898 source:c:\users\sifat\documents\github\movie-theatre-ticket-booking\project\movie_theatre.cpp
+	<iostream>
+	<map>
+	"classes.h"
+
