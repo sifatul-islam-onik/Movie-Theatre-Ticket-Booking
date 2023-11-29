@@ -62,9 +62,7 @@ int main(){
             cin >> phone;
             cout << "Enter hall type:\n1. 3D\n2. 2D" << endl;
             cin >> hallType;
-            cout << "Enter seat type:\n1.premium\n2.regular" << endl;
-            cin >> seatType;
-            if (!abc.bookTicket(movie, hallType, seatType, seatNo, hallNo))
+            if (!abc.bookTicket(movie, hallType, seatNo, hallNo))
                 continue;
             customer c1(name, phone, movie, seatType, hallNo, seatNo, hallType);
             abc.halls[hallNo - 1].seats[seatNo - 1].set_assign(c1);

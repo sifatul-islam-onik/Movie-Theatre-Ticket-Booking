@@ -54,7 +54,7 @@ public:
     hall halls[6];
     map<string, int> movies;
     movie_theatre();
-    bool bookTicket(string movie, int hallType,int seatType,int &seatNo,int &hallNo);
+    bool bookTicket(string movie, int hallType,int &seatNo,int &hallNo);
     void cancelTicket(string phonoNo);
     void addMovie(int hallno, string movieName,map<string, int>&movies);
     void removeMovie(int hallno, map<string, int> &movies);

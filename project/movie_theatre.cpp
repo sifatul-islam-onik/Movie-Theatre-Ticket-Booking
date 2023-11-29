@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <iomanip>
 #include <map>
 #include "classes.h"
 using namespace std;
@@ -12,23 +13,54 @@ movie_theatre::movie_theatre(){
     }
 }
 
-bool movie_theatre :: bookTicket(string movie, int hallType,int seatType,int &seatNo,int &hallNo){
-    int hs = (hallType == 1) ? 0 : 3;
-    int ss = (seatType == 1) ? 0 : 30;
-    for (int i = hs; i < hs + 3;++i){
-        for (int j = ss; j < ss + 30;++j){
-            if(halls[i].cur_movie!=movie)
-                continue;
-            if(!(halls[i].seats[j].assigned)){
-                halls[i].seats[j].assigned = true;
-                seatNo = j + 1;
-                hallNo = i + 1;
-                return true;
+bool movie_theatre :: bookTicket(string movie, int hallType,int &seatNo,int &hallNo){
+    string ht = (hallType == 1) ? "3D" : "2D";
+    bool flag = false;
+    for (int i = 0; i < 6;++i){
+        if(halls[i].cur_movie!=movie || halls[i].hall_type!=ht)
+            continue;
+        cout << "Hall no: " << halls[i].hall_no << '\t' << "Hall type: " << halls[i].hall_type << endl;
+        cout << "Current movie playing: " << halls[i].cur_movie << endl;
+        cout << "Premium: 1-30 \t Regular: 31-60 \t B: Booked" << endl;
+        for (int j = 0; j < 6;++j){
+            for (int k = 0; k < 10;++k){
+                if(!(halls[i].seats[(j*10)+k].assigned)){
+                    cout << setw(2) << halls[i].seats[(j * 10) + k].seat_no << "  ";
+                    flag = true;
+                }
+                else
+                    cout << " B  ";
             }
+            cout << endl;
+        }
+        cout << endl;
+    }
+    if(!flag){
+        cout << "No seats available for this movie!" << endl;
+        return false;
+    }
+    int choice;
+    cout << "Choose seat? (1.Yes / 0.No)" << endl;
+    cin >> choice;
+    if(choice){
+        cout << "Enter hall no: " << endl;
+        cin >> hallNo;
+        cout << "Enter seat no: " << endl;
+        cin >> seatNo;
+        if(!halls[hallNo-1].seats[seatNo-1].assigned){
+            halls[hallNo-1].seats[seatNo-1].assigned=true;
+            cout<<"Seat booked successfully!"<<endl;
+            return true;
+        }
+        else{
+            cout<<"Seat is booked already!"<<endl;
+            return false;
         }
     }
-    cout << "No ticket available!" << endl;
-    return false;
+    else{
+        cout << "No seat chosen!" << endl;
+        return false;
+    }
 }
 
 void movie_theatre :: cancelTicket(string phoneNo){
